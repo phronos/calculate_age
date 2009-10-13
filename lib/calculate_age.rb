@@ -1,8 +1,8 @@
-class DateCalc
+class CalculateAge
   class << self
-    def for(date,opts={})
+    def of(date,opts={})
       date = date.to_date
-      end_date = opts[:until] ? opts.delete(:until).to_date : Date.today
+      end_date = opts[:at] ? opts.delete(:at).to_date : Date.today
       case opts[:in]
       when "days"
         time_in_days(date,end_date)
