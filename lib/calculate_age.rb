@@ -32,7 +32,7 @@ class CalculateAge
     end
     
     def time_in_months(date,end_date)
-      if end_date.month >= date.month
+      if end_date.year >= date.year
         months = (end_date.year - date.year) * 12
         months = months + (end_date.month - date.month)
         months = months - 1 unless end_date.day >= date.day
@@ -60,7 +60,7 @@ class CalculateAge
     def time_in_years_and_months(date,end_date)
       years = time_in_years(date,end_date)
       
-      date_for_this_year = date + (end_date.year - date.year).years
+      date_for_this_year = date + years.to_i.years
       months = time_in_months(date_for_this_year,end_date)
       
       if years.to_i == 0

@@ -18,6 +18,8 @@ class AgeCalcTest < Test::Unit::TestCase
       assert_equal "2 months", CalculateAge.of((3.months-1.day).ago,:in => "months")
       assert_equal "3 months", CalculateAge.of((3.months+1.day).ago,:in => "months")
       assert_equal "18 months", CalculateAge.of("3/8/2008",:in => "months")
+      assert_equal "22 months", CalculateAge.of("11/08/2007", :in => "months")
+      assert_equal "24 months", CalculateAge.of("9/09/2007", :in => "months")
     end
     
     pretend_now_is(2009,'sep',24) do
@@ -51,6 +53,7 @@ class AgeCalcTest < Test::Unit::TestCase
       assert_equal "4 years", CalculateAge.of(4.years.ago, :in => "years and months")
       assert_equal "2 years and 4 months", CalculateAge.of((2.years+130.days).ago, :in => "years and months")
       assert_equal "1 year and 5 months", CalculateAge.of(17.months.ago, :in => "years and months")
+      assert_equal "1 year and 11 months", CalculateAge.of(23.months.ago, :in => "years and months")
     end
   end
   
